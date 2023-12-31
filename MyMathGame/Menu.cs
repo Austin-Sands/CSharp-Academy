@@ -11,8 +11,12 @@
 
             Console.WriteLine(
             "----------------------------------------\n" +
-            $"Hello {name.ToUpper()}. It's {date.DayOfWeek}. This is your math's game. It's great that you're working on improving yourself\n"
+            $"Hello {name}. It's {date:D}. This is your math's game.\nIt's great that you're working on improving yourself\n"
             );
+
+            Console.WriteLine("Press any key to show menu...");
+            Console.ReadLine();
+            Console.WriteLine("\n");
 
             String menu =
                 $"What game would you like to play today? Choose from the following options:\n" +
@@ -27,6 +31,8 @@
 
             do
             {
+                Console.Clear();
+
                 Console.WriteLine(menu);
 
                 var gameSelected = Console.ReadLine();

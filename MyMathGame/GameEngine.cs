@@ -1,4 +1,5 @@
 ﻿using MyMathGame.Models;
+using System.Net.Http.Headers;
 
 namespace MyMathGame
 {
@@ -19,11 +20,11 @@ namespace MyMathGame
                 var correct = firstNumber + secondNumber;
 
                 Console.WriteLine($"{firstNumber} + {secondNumber}");
-                var answer = Console.ReadLine();
+                var answer = Helpers.GetInput();
 
-                score += Helpers.checkAnswer(correct, answer);
+                score += Helpers.CheckAnswer(correct, answer);
             }
-            Helpers.printScore(score, GameType.Addition);
+            Helpers.PrintScore(score, GameType.Addition);
             return score;
         }
 
@@ -42,11 +43,11 @@ namespace MyMathGame
                 var correct = firstNumber - secondNumber;
 
                 Console.WriteLine($"{firstNumber} - {secondNumber}");
-                var answer = Console.ReadLine();
+                var answer = Helpers.GetInput();
 
-                score += Helpers.checkAnswer(correct, answer);
+                score += Helpers.CheckAnswer(correct, answer);
             }
-            Helpers.printScore(score, GameType.Subtraction);
+            Helpers.PrintScore(score, GameType.Subtraction);
             return score;
         }
 
@@ -65,11 +66,11 @@ namespace MyMathGame
                 var correct = firstNumber * secondNumber;
 
                 Console.WriteLine($"{firstNumber} x {secondNumber}");
-                var answer = Console.ReadLine();
+                var answer = Helpers.GetInput();
 
-                score += Helpers.checkAnswer(correct, answer);
+                score += Helpers.CheckAnswer(correct, answer);
             }
-            Helpers.printScore(score, GameType.Multiplication);
+            Helpers.PrintScore(score, GameType.Multiplication);
             return score;
         }
 
@@ -85,11 +86,11 @@ namespace MyMathGame
                 var correct = divisionNumbers[0] / divisionNumbers[1];
 
                 Console.WriteLine($"{divisionNumbers[0]} / {divisionNumbers[1]}");
-                var answer = Console.ReadLine();
+                var answer = Helpers.GetInput();
 
-                score += Helpers.checkAnswer(correct, answer);
+                score += Helpers.CheckAnswer(correct, answer);
             }
-            Helpers.printScore(score, GameType.Division);
+            Helpers.PrintScore(score, GameType.Division);
             return score;
         }
 

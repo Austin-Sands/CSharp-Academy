@@ -9,10 +9,12 @@ namespace MyMathGame
 
         internal static void GetGames()
         {
+            IEnumerable<Game> gamesToPrint = games.OrderByDescending(x => x.Score);
+
             Console.Clear();
             Console.WriteLine("Games History");
             Console.WriteLine("----------------------------------");
-            foreach (var game in games)
+            foreach (var game in gamesToPrint)
             {
                 Console.WriteLine($"{game.Date} — {game.Type}: {game.Score}pts");
             }
@@ -22,7 +24,7 @@ namespace MyMathGame
             Console.Clear();
         }
 
-        internal static int checkAnswer(int correct, string answer)
+        internal static int CheckAnswer(int correct, string answer)
         {
             Console.Clear();
             if (int.Parse(answer.Trim()) == correct)
@@ -37,7 +39,7 @@ namespace MyMathGame
             }
         }
 
-        internal static void printScore(int score, GameType gameType)
+        internal static void PrintScore(int score, GameType gameType)
         {
             AddToHistory(score, gameType);
             Console.WriteLine($"Game over. Your final score is {score}. ");
@@ -74,6 +76,34 @@ namespace MyMathGame
             divisionNumbers[1] = secondNumber;
 
             return divisionNumbers;
+        }
+
+        internal static string GetInput()
+        {
+            var answer = Console.ReadLine();
+
+            while (string.IsNullOrEmpty(answer) || !Int32.TryParse(answer, out _))
+            {
+                Console.WriteLine("Your answer must be an integer. Try again.");
+                answer = Console.ReadLine();
+            }
+
+            return answer;
+        }
+
+        internal static string GetName()
+        {
+            Console.WriteLine("Please type your name");
+
+            var name = Console.ReadLine();
+
+            while (string.IsNullOrEmpty (name))
+            {
+                Console.WriteLine("Name can't be empty. Try again.");
+                name = Console.ReadLine();
+            }
+
+            return name;
         }
     }
 }
