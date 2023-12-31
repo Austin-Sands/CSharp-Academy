@@ -2,23 +2,21 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
+    public MainPage() { 
+        InitializeComponent();
+    }
 
-	public MainPage()
-	{
-		InitializeComponent();
-	}
+    private void OnGameChosen(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+        Navigation.PushAsync(new GamePage(button.Text));
+    }
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+    private void OnViewPreviousGamesChosen(object sender, EventArgs e)
+    {
+        Button button = (Button)sender;
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        Navigation.PushAsync(new PreviousGames());
+    }
 }
-
