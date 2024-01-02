@@ -1,1 +1,1 @@
-Repo for C# Academy projects
+Repo for [C# Academy](https://thecsharpacademy.com/) projects
